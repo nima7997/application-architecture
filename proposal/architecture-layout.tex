@@ -1,0 +1,150 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{xepersian}
+\settextfont{B Nazanin}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{lipsum}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{نام اعضای تیم:} سید حسین زراعتکار و نیما گمرکیان}
+\fancyhead[R]{\textbf{موضوع پروژه:} معماری نرم‌افزار فروشگاه‌های زنجیره‌ای}
+\fancyfoot[C]{\thepage}
+
+
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
+
+\usepackage{xcolor}
+\usepackage[
+colorlinks=true,
+linkcolor=black,    
+urlcolor=blue,       
+citecolor=black
+]{hyperref}
+
+
+\makeatletter
+\renewcommand{\@dotsep}{4.5}
+\makeatother
+
+\begin{document}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{Image/Icon/KNTU}
+		\label{fig:kntu}
+	\end{figure}
+	\begin{titlepage}
+		\centering
+		\vspace*{3cm}
+		{\Huge \textbf{پلتفرم  مدیریت  فروشگاه‌های زنجیره‌ای}\par}
+		\vspace{2cm}
+		{\Large \textbf{درس:} معماری نرم‌افزار \par}
+		\vspace{1cm}
+		{\Large \textbf{استاد:} دکتر اثنی‌عشری \par}
+		\vspace{1cm}
+		{\Large \textbf{اعضای تیم:} سید حسین زراعتکار و نیما گمرکیان\par}
+		\vfill
+		{\large تاریخ: \today \par}
+	\end{titlepage}
+	
+
+	\newpage
+	
+
+	\section{مقدمه}
+	موضوع انتخابی، طراحی معماری پلتفرم مدیریت فروشگاه‌های زنجیره‌ای می‌باشد. این سامانه به منظور یکپارچه سازی دادگان فروشگاه زنجیره‌ای مورد استفاده قرار می‌گیرد. برای پیاده سازی معماری این سامانه از معماری سرویس گرا یا میکرو سرویس استفاده خواهیم کرد. بخش‌هایی که برای این پلتفرم کاندیدا هستند بخش مدیریت فروشگاه، فروشگاه آنلاین، مدیریت موجودی و محصولات، مدیریت کارمندان، مدیریت مشتریان، مدیریت فروش و پرداخت‌ها و مدیریت گزارشات می‌باشد. در ادامه به بررسی پیشرانه‌های معماری و سناریو‌ها و خواهیم پرداخت.
+	
+	\section{پیشرانه‌های معماری (\lr{Architecture Drivers})}
+	
+	\begin{enumerate}
+		\item \textbf{\lr{availability}}:
+		سامانه در ساعات کاری باید در دسترس باشد. همچنین در صورت افزوده شدن سامانه آنلاین باید درسترس پذیری نیز برای سامانه فراهم شود.
+		\item \textbf{\lr{performance}}:
+		امکان ثبت سفارشات به صورت گسترده فراهم باشد. سرعت پاسخگویی به ثبت سفارشات باید مطلوب باشد.
+		\item \textbf{\lr{integration}}:
+		در صورت ایحاد شعب دیگر و اضافه شدن سرویس‌های مدیریت فروشگاه دیگر، قابلیت افزودن آن به سامانه بدون نیاز به تغییرات بنیادی فراهم باشد. همچنین در صورت نیاز بتوان بخش حسابداری، تامین و بخش‌های دیگر را به این پروژه متصل کرد.
+		
+	\end{enumerate}
+	
+	\section{سناریوها (\lr{Scenarios})}
+\begin{table}[h]
+	\centering
+	\caption{سناریوهای \lr{availability} به صورت کلی}
+	\begin{tabular}{|c|c|}
+		\hline
+		بخش‌های سناریو& توضیحات \\
+		\hline
+		منبع محرک & اپراتور فروشگاه، خریداران اینترنتی، سخت افزار، نرم افزار و زیرساخت فیزیکی \\
+		محرک & \lr{fault: crash, incorrect response} \\
+		محیط & هنگام اجرای \lr{Crud}، ارسال و دریافت درخواست از سرویس‌ها، هنگام تعمییر سرویس ، در زمان پیک ثبت تراکنش  \\
+		پاسخ & 1- جلوگیری از \lr{fault} 2- تشخیص \lr{fault} 3- بازیابی سرویس پس از \lr{fault} \\
+		معیار سنجش & میزان زمان برای تشخیص و بازیابی \lr{fault}، میزان زمان در دسترس بودن سیستم به صورت میانگین \\
+		\hline
+	\end{tabular}
+\end{table}
+سناریوهای مختص در دسترس پذیری این نرم افزار عبارتند از: 
+\begin{enumerate}
+	\item افزایش ترافیک در زمان‌های خاص (روزهای خاص، تخفیفات و ...)
+	\item  قطع شدن سرویس مدیریت فروشگاه با باقی سرویس‌ها
+	\item خرابی سرویس اهرازهویت
+	\item  خرابی یکی از سرویس‌های حیاتی
+\end{enumerate}
+
+\begin{table}[h]
+	\centering
+	\caption{سناریوهای \lr{performance}}
+	\begin{tabular}{|c|c|}
+		\hline	
+بخش‌های سناریو& توضیحات \\
+		\hline	
+منبع محرک & سرویس‌های داخلی و خارجی\\	
+محرک & رخدادهای تصادفی درخواست‌ها و پاسخشان از سرویس‌های مختلف	\\	
+محیط & درحالت: عادی، اضطراری، سربار زیاد \\	
+پاسخ & استفاده از سرورهای پشتیبان، استفاده از \lr{timeout} 	\\	
+معیار سنجش & تاخیر، توان عملیاتی، \lr{jitter} و...	\\	
+		\hline
+	\end{tabular}
+\end{table}
+\newpage
+سناریوهای مختص در کارایی این نرم افزار عبارتند از: 
+\begin{enumerate}
+	\item  مدیریت افزایش بار در ساعات پیک خرید از فروشگاه
+	\item ثبت تراکنش‌های همزمان از چند صد فروشگاه
+\end{enumerate}
+\begin{table}[h]
+	\centering
+	\caption{سناریوهای \lr{integration}}
+	\begin{tabular}{|c|c|}
+		\hline	
+		بخش‌های سناریو& توضیحات \\
+		\hline	
+				منبع محرک &  مدیرسامانه، ادمین، توسعه دهنده \\	
+				محرک & توسعه نرم افزار برای مدیریت بهتر روی بخش‌ها به صورت یکپارچه،	\\	
+				محیط & در رمان اجرا \\	
+				پاسخ & تخصیص و آزادسازی سرور، تغییر سطح سرویس	\\	
+				معیار سنجش & میزان تطابق با سرویس‌های جدید، توانایی برقراری ارتباط به صورت درصدی مربوط به هر بخش ارتباطی با سرویس جدید	\\	
+		\hline
+	\end{tabular}
+\end{table}
+
+سناریوهای مختص در کارایی این نرم افزار عبارتند از: 
+\begin{enumerate}
+	\item قابلیت افزودن سرویس‌هایی مانند حسابداری، مدیریت تامیین بدون نیاز به تغییر ماهیت سرویس‌ها
+	\item قابلیت اتصال به سرویس \lr{ERP}
+\end{enumerate}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{image/basic-diagram}
+	\caption{دیاگرام ساده‌ای برای نمایش اولیه سرویس‌ها}
+	\label{fig:basic-diagram}
+\end{figure}
+
+
+\end{document}

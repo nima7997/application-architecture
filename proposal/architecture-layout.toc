@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}مقدمه}{2}{section.1}%
+\contentsline {section}{\numberline {2}پیشرانه‌های معماری (\lr {Architecture Drivers})}{2}{section.2}%
+\contentsline {section}{\numberline {3}سناریوها (\lr {Scenarios})}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}سناریوهای عملکردی}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}سناریوهای کیفیتی}{2}{subsection.3.2}%
+\contentsline {section}{\numberline {4}تاکتیک‌ها (\lr {Tactics})}{2}{section.4}%
+\contentsline {section}{\numberline {5}الگوها (\lr {Patterns})}{2}{section.5}%
+\contentsline {section}{\numberline {6}جمع‌بندی}{2}{section.6}%
