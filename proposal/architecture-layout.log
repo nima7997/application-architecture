@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.10.4)  28 NOV 2025 23:13
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.10.4)  29 NOV 2025 15:27
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -709,13 +709,13 @@ File: Image/Icon/KNTU.png Graphic file (type bmp)
 
 ]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 80.
+(Font)              <12> on input line 79.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 80.
+(Font)              <8> on input line 79.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 80.
+(Font)              <6> on input line 79.
 
-Overfull \hbox (43.93863pt too wide) in paragraph at lines 80--91
+Overfull \hbox (43.93863pt too wide) in paragraph at lines 79--90
  [][][][] 
  []
 
@@ -729,10 +729,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [1]
-Overfull \hbox (67.61725pt too wide) in paragraph at lines 124--135
- [][][][] 
- []
-
 File: image/basic-diagram.png Graphic file (type bmp)
 <image/basic-diagram.png>
 
