@@ -8,6 +8,7 @@
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{lipsum}
+\usepackage{float}
 
 
 \pagestyle{fancy}
@@ -59,92 +60,129 @@ citecolor=black
 	
 
 	\section{مقدمه}
-	موضوع انتخابی، طراحی معماری پلتفرم مدیریت فروشگاه‌های زنجیره‌ای می‌باشد. این سامانه به منظور یکپارچه سازی دادگان فروشگاه زنجیره‌ای مورد استفاده قرار می‌گیرد. برای پیاده سازی معماری این سامانه از معماری سرویس گرا یا میکرو سرویس استفاده خواهیم کرد. بخش‌هایی که برای این پلتفرم کاندیدا هستند بخش مدیریت فروشگاه، مدیریت موجودی و محصولات، مدیریت کارمندان، مدیریت مشتریان، مدیریت فروش و پرداخت‌ها و مدیریت گزارشات می‌باشد. در ادامه به بررسی پیشرانه‌های معماری و سناریو‌ها و خواهیم پرداخت.
-	
+	این سامانه به منظور استفاده در فروشگاه‌های زنجیره‌ای برای مدیریت کارمندان و مشتریان، مدیریت محصولات و موجودی، مدیریت فروش(تراکنش‌ها) و پرداخت طراحی خواهد شد. این سامانه نیاز به یکپارچه‌سازی به منظور مدیریت شعب، مدیریت فروش، مدیریت موجودی، مدیریت پرسنل و مشتریان دارد. این نرم‌افزار دارای دو سطح دسترسی کاربر و مدیر می‌باشد. در هر یک از شعب باید قابلیت ویرایش موجودی کالا، ویرایش یا افزودن مشتری جدید، ثبت و ویرایش فاکتور فروش وجود داشته باشد. تعریف پرسنل، کالاها، سطح دسترسی (کاربر و مدیر )توسط نرم افزار مدیریتی انجام می‌شود.
+	\section{موارد استفاده}
+	سرویس فروشگاه برای هر شعبه
+	\begin{enumerate}
+	\item اپراتور در نرم‌افزار فروشگاه با سطح دسترسی کاربر معمولی وارد می‌شود.
+	\item احرازهویت ایشان توسط سرویس احرازهویت تصدیق می‌شود.
+	\item اپراتور انتخاب‌های زیر را خواهد داشت:
+	\begin{enumerate}
+	\item افزودن و ویرایش مشتری جدید	
+	\item افزودن، ویرایش، و حذف اقلام فاکتور فروش
+	\item ثبت نهایی فروش و صدور فاکتور
+	\end{enumerate}
+	\end{enumerate}
+	سرویس مدیریتی
+	\begin{enumerate}
+		\item کاربر با سطح دسترسی مدیر وارد می‌شود.
+		\item احرازهویت وی توسط سرویس احرازهویت تصدیق می‌شود.
+		\item مدیر قابلیت‌های زیر را خواهد داشت:
+		\begin{enumerate}
+			\item افزودن،ویرایش و حذف کاربر(اپراتور)
+			\item افزودن، ویرایش و حذف کالا
+			\item گزارشگیری‌های متنوع
+			\item تمام توانایی کاربر معمولی
+		\end{enumerate}
+	\end{enumerate}
+	%\textbf{حذف و ویرایش رکورد برای هر داده براساس شرایطی خاص انجام می‌شود.} \\
+	دیگر سرویس‌ها که شامل سرویس مدیریت کاربران و مشتریان، سرویس مدیریت فروش و موجودی و کالا و مدیریت گزارش‌ها می‌شود توسط این دو سرویس مورد استفاده قرار خواهند گرفت.
 	\section{پیشرانه‌های معماری (\lr{Architecture Drivers})}
-	
 	\begin{enumerate}
 		\item \textbf{\lr{availability}}:
-		سامانه در ساعات کاری باید در دسترس باشد. همچنین در صورت افزوده شدن سامانه آنلاین باید درسترس پذیری نیز برای سامانه فراهم شود.
+		سرویس‌دهی با بیشترین دسترس‌پذیری (به ویژه در ساعات اوج تراکنش‌ها)
 		\item \textbf{\lr{performance}}:
-		امکان ثبت سفارشات به صورت گسترده فراهم باشد. سرعت پاسخگویی به ثبت سفارشات باید مطلوب باشد.
-		\item \textbf{\lr{integration}}:
-		در صورت ایحاد شعب دیگر و اضافه شدن سرویس‌های مدیریت فروشگاه دیگر، قابلیت افزودن آن به سامانه بدون نیاز به تغییرات بنیادی فراهم باشد. همچنین در صورت نیاز بتوان بخش حسابداری، تامین و بخش‌های دیگر را به این پروژه متصل کرد.
+		پاسخ درخواست‌ها در بازه محدود و مشخص داده شود
+		\item \textbf{\lr{testability}}:
+		قابلیت نمایش خطای سیستم برای تسهیل در تصحیح خطای
+		\item \textbf{\lr{scalability}}:
+		قابلیت افزودن شعب بدون نیاز به تغییرات عمده را داشته باشیم
+		
 	\end{enumerate}
-	
+	\newpage
 	\section{سناریوها (\lr{Scenarios})}
+	سناریوهای دسترس پذیری نرم افزار عبارتند از: 
+	\begin{enumerate}
+		\item سامانه باید در ساعات کاری به برای انجام عملیات‌هایی همچون ثبت تراکنش‌ها در دسترس باشد.
+		\item در ساعات اوج مصرف سامانه باید دردسترس باشد
+		\item در هر زمان برای گزارش‌گیری باید سامانه در دسترس باشد
+	\end{enumerate}
 \begin{table}[h]
 	\centering
-	\caption{سناریوهای \lr{availability} به صورت کلی}
+	\caption{سناریو \lr{availability}}
 	\begin{tabular}{|c|c|}
 		\hline
-		بخش‌های سناریو& توضیحات \\
+		\textbf{بخش‌های سناریو} & \textbf{توضیحات} \\
 		\hline
-		منبع محرک & اپراتور فروشگاه، سخت افزار، نرم افزار و زیرساخت فیزیکی \\
-		محرک & \lr{fault: crash, incorrect response} \\
-		محیط & هنگام اجرای \lr{Crud}، ارسال و دریافت درخواست از سرویس‌ها، هنگام تعمییر سرویس ، در زمان پیک ثبت تراکنش  \\
-		پاسخ & 1- جلوگیری از \lr{fault} 2- تشخیص \lr{fault} 3- بازیابی سرویس پس از \lr{fault} \\
-		معیار سنجش & میزان زمان برای تشخیص و بازیابی \lr{fault}، میزان زمان در دسترس بودن سیستم به صورت میانگین \\
+		\lr{stimulus sources} & \lr{user, software, hardware}\\
+		\lr{stimulus} & \lr{fault in any services} \\
+		\lr{environment} &  \lr{peak hours} \\
+		\lr{artifact} & \lr{store services ,order API, order services,report services}\\
+		\lr{response} & \lr{1-prevent 2-detect 3-recovery}  \\
+		\lr{response measures} & \lr{Time to detect fault, Avg availability in specific duration} \\
 		\hline
 	\end{tabular}
 \end{table}
-سناریوهای مختص در دسترس پذیری این نرم افزار عبارتند از: 
+سناریوهای کارایی نرم افزار عبارتند از: 
 \begin{enumerate}
-	\item افزایش ترافیک در زمان‌های خاص (روزهای خاص، تخفیفات و ...)
-	\item  خرابی یکی از سرویس‌های حیاتی
-\end{enumerate}
-
-\begin{table}[h]
-	\centering
-	\caption{سناریوهای \lr{performance}}
-	\begin{tabular}{|c|c|}
-		\hline	
-بخش‌های سناریو& توضیحات \\
-		\hline	
-منبع محرک & سرویس‌های داخلی و خارجی\\	
-محرک & رخدادهای تصادفی درخواست‌ها و پاسخشان از سرویس‌های مختلف	\\	
-محیط & درحالت: عادی، اضطراری، سربار زیاد \\	
-پاسخ & استفاده از سرورهای پشتیبان، استفاده از \lr{timeout} 	\\	
-معیار سنجش & تاخیر، توان عملیاتی، \lr{jitter} و...	\\	
-		\hline
-	\end{tabular}
-\end{table}
-\newpage
-سناریوهای مختص در کارایی این نرم افزار عبارتند از: 
-\begin{enumerate}
-	\item  مدیریت افزایش بار در ساعات پیک خرید از فروشگاه
-	(ثبت تراکنش‌های همزمان از چند صد فروشگاه)
-	\item انجام گزارش‌گیری با زمان تقریبی مناسب
+	\item در زمان اوج فروش در شعب باید حداکثر تاخیر قابل قبولی داشته باشیم.
 \end{enumerate}
 \begin{table}[h]
 	\centering
-	\caption{سناریوهای \lr{integration}}
+	\caption{سناریو \lr{performance}}
 	\begin{tabular}{|c|c|}
 		\hline	
-		بخش‌های سناریو& توضیحات \\
+		\textbf{بخش‌های سناریو} & \textbf{توضیحات} \\
 		\hline	
-				منبع محرک &  مدیرسامانه، ادمین، توسعه دهنده \\	
-				محرک & توسعه نرم افزار برای مدیریت بهتر روی بخش‌ها به صورت یکپارچه،	\\	
-				محیط & در رمان اجرا \\	
-				پاسخ & تخصیص و آزادسازی سرور، تغییر سطح سرویس	\\	
-				معیار سنجش & میزان تطابق با سرویس‌های جدید	\\	
+\lr{stimulus sources} & \lr{services and user}\\
+\lr{stimulus} & \lr{order} \\
+\lr{environment} &  \lr{ordering in peak time} \\
+\lr{artifact} & \lr{ordering, inventory, product,}\\
+\lr{response} & \lr{fast, handle transaction when disconnecting}  \\
+\lr{response measures} & \lr{response time, threshold of latency} \\
 		\hline
 	\end{tabular}
 \end{table}
-
-سناریوهای مختص در یکپارچه‌سازی این نرم افزار عبارتند از: 
+سناریوهای تست پذیری نرم افزار عبارتند از: 
 \begin{enumerate}
-	\item قابلیت اتصال به سرویس‌هایی مانند حسابداری، مدیریت تامیین بدون نیاز به تغییر ماهیت سرویس‌ها
-	\item در صورت تغییر سرویس‌های فروش و مدیریت کالا سرویس گزارشات نیاز به تغییر نداشته باشد و سرویس‌ها بتوانند با استفاده از روش‌هایی مانند استاندارد سازی یکپارچه شوند(این مورد می‌تواند با معیار \lr{modifiability} مشترک باشد)
+	\item درصورت بروز خطا در سیستم قابلیت کشف علت و تصحیح آن مشخص باشد.
 \end{enumerate}
-\textbf{توضیحات تکمیلی}\\
-در این سامانه، ما چندین سرویس مدیریت فروشگاه داشته که برای هر یک از شعب فروشگاه به صورت مستقل کار می‌کند. همچنین برای سرویس محصولات و موجودی ما سرویسی داشته که موظف به مدیریت موجودی کالا و مدیریت بخش کالا را برعهده خواهد داشت. سرویس کارمندان و مشتریان نیز برای مدیریت اطلاعات مشتریان همچون اطلاعات پرسنلی، سبد‌های خرید و مواردی از این قبیل می‌باشد و از طرفی برای کارمندان به منظور مدیریت تراکنش‌ها نیز سرویس مستقل دیگری خواهیم داشت. سرویس احراز هویت نیز به منظور اعمال موارد امنیتی استفاده می‌شود. سرویس مدیریت گزارش‌ها به منظور گزارش گیری برای ادمین‌های سامانه و مدیران سامانه ایجاد شده است که دسترسی کاربران با سطح دسترسی پایین (اپراتورها) اجازه دسترسی به به این سرویس را ندارند.
-\begin{figure}[h]
+\begin{table}[h!]
 	\centering
-	\includegraphics[width=0.7\linewidth]{image/basic-diagram}
-	\caption{دیاگرام ساده‌ای برای نمایش اولیه سرویس‌ها}
-	\label{fig:basic-diagram}
-\end{figure}
-
+	\caption{سناریوهای \lr{testability}}
+	\begin{tabular}{|c|c|}
+		\hline	
+		\textbf{بخش‌های سناریو} & \textbf{توضیحات} \\
+		\hline	
+		\lr{stimulus sources} & \lr{users, unit or integrate test}\\
+		\lr{stimulus} & \lr{a set of tests} \\
+		\lr{environment} &  \lr{design \& development \& compile \& integration time} \\
+		\lr{artifact} & \lr{the part of system}\\
+		\lr{response} & \lr{execute test suit and capture result, activity which created fault}  \\
+		\lr{response measures} & \lr{effort to find a fault or class of faults} \\
+		\hline
+	\end{tabular}
+\end{table}
+سناریوهای مقیاس پذیری نرم افزار عبارتند از: 
+\begin{enumerate}
+	\item قابلیت افزودن نودهای جدید برای شعب جدید
+	\item قابلیت افزودن نودهای جدید به منظور جلوگیری از تاخیر بیشتر
+\end{enumerate}
+\begin{table}[H]
+	\centering
+	\caption{سناریوهای \lr{scalability}}
+	\begin{tabular}{|c|c|}
+		\hline	
+		\textbf{بخش‌های سناریو} & \textbf{توضیحات} \\
+		\hline	
+		\lr{stimulus sources} & \lr{manager or admin}\\
+		\lr{stimulus} & \lr{new branch, increase in customers} \\
+		\lr{environment} &  \lr{runtime} \\
+		\lr{artifact} & \lr{servers \& services}\\
+		\lr{response} & \lr{delay \& speed compensation by adding new node}  \\
+		\lr{response measures} & \lr{The system must be able to handle many times the normal load.} \\
+		\hline
+	\end{tabular}	
+\end{table}
 
 \end{document}
