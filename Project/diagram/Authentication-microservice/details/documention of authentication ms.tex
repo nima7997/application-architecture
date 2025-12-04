@@ -1,0 +1,48 @@
+\documentclass[a4paper]{report}
+
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{xepersian}
+
+\fancyhead[R]{خواجه نصیر الدین طوسی}
+\fancyhead[L]{سید حسین زراعتکار}
+\settextfont{B Nazanin}
+\setlatintextfont{Times New Roman}
+
+\title{ معماری نرم‌افزار - سرویس \lr{Authentication} }
+\author{سید حسین زراعتکار و نیما گمرکیان\\
+	دانشگاه خواجه نصیر الدین طوسی}
+\date{\today}
+
+\begin{document}
+	\pagestyle{plain}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{image/KNTU.png}
+	\label{fig:kntu}
+\end{figure}
+\maketitle
+\section{میکروسرویس \lr{Authentication} - \lr{Module View}}
+در این بخش به بررسی معماری میکروسرویس \lr{َAuthentication} خواهیم پرداخت. این میکروسرویس وظیفه احراز هویت کاربران و ادمین‌ها را به عهده دارد. پس از اهراز هویت به هر کاربر یک توکن داده خواهد شد که دارای زمان انقضا هست. هر سرویس دیگر متناسب با توکن‌های کاربران له آنها سرویس می‌دهد. در ادامه ماژول‌ها و وابستگی‌شان را در قالب دیاگرام در شکل \ref{fig:authentication-diragram} ارائه کردیم.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1.0\linewidth]{image/Authentication-Diragram}
+	\caption{دیاگرام وابستگی ماژول‌ها}
+	\label{fig:authentication-diragram}
+\end{figure}
+
+	این ماژول از طریق دو \lr{framework} ‌‌با نام‌های \lr{grpc} و \lr{RabitMQ} با دیگر سرویس‌ها و \lr{bff} تعامل می‌کند. برای تعاملات بین سرویس به دلیل سرعت بالاتر از \lr{grpc} و برای تعاملات با \lr{bff} از \lr{RabitMQ} استفاده کردیم.\\
+	برای پیاده سازی متد‌ها و مدیریت پیام‌های این دو سرویس یک ماژول پیاده سازی کردیم که بتواند کارهایی که فریموورک قرار است برای ما انجام دهد را مدیریت کند که این ماژول باید \lr{interface} مربوط به \lr{message interface} را پیاده سازی کند تا \lr{business logic} ما بتواند بدون وابستگی به ماژول \lr{low level} با بقیه ارتیاط برقرار کند. در قسمت \lr{business logic} ما یک ماژول به منظور هندل کردن رخدادهای دریافتی یا ارسال پیام‌ها پیاده سازی شده است به نام \lr{Message Handler} این ماژول نیز به علت سطح پایین بودن باید برای مورد استفاده قرار گرفتن توسط \lr{Authentication} که بالاترین سطح را دارد با استفاده از معکوس سازی وابستگی و استفاده از \lr{interface} پیاده سازی شود. از طرفی دیگر ما برای افزودن کاربران(ادمین و کاربر‌معمولی) ماژولی به نام \lr{Management User Service} داریم که عملیات های \lr{verification, registration, update} را انجام می‌دهد. این ماژول نیز به دلیل نیاز به استفاده از دیتابیس با \lr{interface} و معکوس سازی وابستگی با دیتابیس مورد نظر کار می‌کند. در آخر ماژول \lr{Tokenizer service} با استفاده از کتابخانه‌ها و ‌\lr{framework} ها توکن‌ها را ایجاد کرده و آپدیت و انقضای توکن‌ها از این طریق مدیریت می‌شوند. برای انقضای توکن در واسط مربوط به \lr{Tokenizer} ما یک متد برای ایونت انقضا داشته و در طرف مازول \lr{mangement} یک هندلر تابع و در \lr{authentication} این‌ها را مدیریت می‌کنیم.
+	یکی از نکات مهم این است که برای تعاملات با سایر سرویس‌ها ما باید از معماری تراکنش \lr{saga} استفاده کنیم تا قبل از اعمال تراکنش احراز هویت بر اساس توکن کاربر بررسی شود.
+	
+\section{میکروسرویس \lr{Authentication} - \lr{Component \& Connector View (C\&C)}}
+در این قسمت به بررسی نمای دیگر از معماری سرویس \lr{Authentication} به نام \lr{Connection And Component View} می‌پردازیم. نمای کلی ارتباطات این سرویس با سرویس‌های دیگر و \lr{BFF} در شکل \ref{fig:support-diagram} ارائه شده است.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{image/Support-diagram.drawio}
+	\caption{نمای \lr{C\&C}}
+	\label{fig:support-diagram}
+\end{figure}
+بر اساس نیاز موجود هر کاربر با هر سطح دسترسی یا درخواست اهراز هویت اولیه می‌دهد که در آن صورت مسیر از کاربر به \lr{BFF}، \lr{API Gateway} و در آخر به سرویس احراز هویت میرسد و اما در صورت درخواست سرویس دیگر مرحله آخر به سرویس مورد نظر رسیده و سرویس مورد نظر درخواست تایید برای توکن را به سرویس احرازهویت ارسال کرده و بر اساس تایید یا رد پاسخ کار را ادامه می‌دهند. پاسخ نیز از سرویس مورد نظر به کاربر برگشت داده می‌شود و اگر پاسخ سرویس احرازهویت باشد، مقدار توکنی را برمی‌گرداند.
+
+\end{document}}
