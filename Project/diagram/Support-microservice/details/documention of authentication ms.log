@@ -1,14 +1,14 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.8.31)  4 DEC 2025 15:32
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.10.4)  8 DEC 2025 08:31
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **"./documention of authentication ms.tex"
 (documention of authentication ms.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-08-13>
-(C:\Program Files\MiKTeX\tex/latex/base\report.cls
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
 Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
-(C:\Program Files\MiKTeX\tex/latex/base\size10.clo
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
 File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count271
@@ -24,7 +24,7 @@ File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 \belowcaptionskip=\skip50
 \bibindent=\dimen148
 )
-(C:\Program Files\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 
 \f@nch@headwidth=\skip51
@@ -43,31 +43,32 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@widthR=\skip64
 \@temptokenb=\toks17
 )
-(C:\Program Files\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
-
-(C:\Program Files\MiKTeX\tex/latex/graphics\keyval.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks18
 )
-(C:\Program Files\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
-
-(C:\Program Files\MiKTeX\tex/latex/graphics\trig.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
 )
-(C:\Program Files\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics
+.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: xetex.def on input line 106.
 
-(C:\Program Files\MiKTeX\tex/latex/graphics-def\xetex.def
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\xetex.de
+f
 File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
 ))
 \Gin@req@height=\dimen149
 \Gin@req@width=\dimen150
 )
-(C:\Program Files\MiKTeX\tex/xelatex/xepersian\xepersian.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/xelatex/xepersian\xepersian
+.sty
 Package: xepersian 2025/02/02 v25.2.2 (Release Persian Gate) Persian typesettin
 g in XeLaTeX
 
@@ -96,12 +97,16 @@ g in XeLaTeX
 * Primary author of xepersian package: Vafa Khalighi.
 * 
 ****************************************************
-(C:\Program Files\MiKTeX\tex/latex/fontspec\fontspec.sty
-(C:\Program Files\MiKTeX\tex/latex/l3packages/xparse\xparse.sty
-(C:\Program Files\MiKTeX\tex/latex/l3kernel\expl3.sty
+
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fontspec.sty
+
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xpa
+rse.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
 Package: expl3 2025-08-13 L3 programming layer (loader) 
 
-(C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-xetex.def
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-x
+etex.def
 File: l3backend-xetex.def 2025-06-09 L3 backend support: XeTeX
 \g__graphics_track_int=\count280
 \g__pdfannot_backend_int=\count281
@@ -111,7 +116,8 @@ Package: xparse 2024-08-16 L3 Experimental document command parser
 )
 Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
 
-(C:\Program Files\MiKTeX\tex/latex/fontspec\fontspec-xetex.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fontspec-xet
+ex.sty
 Package: fontspec-xetex 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTe
 X
 \l__fontspec_script_int=\count283
@@ -129,11 +135,13 @@ X
 \l__fontspec_tmpb_dim=\dimen152
 \l__fontspec_tmpc_dim=\dimen153
 
-(C:\Program Files\MiKTeX\tex/latex/base\fontenc.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
 )
-(C:\Program Files\MiKTeX\tex/latex/fontspec\fontspec.cfg)))
-(C:\Program Files\MiKTeX\tex/xelatex/xepersian\xepersian-persiancal.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fontspec.cfg
+)))
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/xelatex/xepersian\xepersian
+-persiancal.sty
 Package: xepersian-persiancal 2025/01/01 v0.3 provides Persian calendar
 \XePersian@i=\count294
 \XePersian@y=\count295
@@ -173,10 +181,11 @@ Package: xepersian-persiancal 2025/01/01 v0.3 provides Persian calendar
 \XePersian@sn=\count329
 \XePersian@mminusone=\count330
 )
-(C:\Program Files\MiKTeX\tex/xelatex/xepersian\unicode-persianmath.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/xelatex/xepersian\unicode-p
+ersianmath.sty
 Package: unicode-persianmath 2025/02/02 v1.2.3 Unicode Persian math
 )
-(C:\Program Files\MiKTeX\tex/xelatex/bidi\bidi.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/xelatex/bidi\bidi.sty
 Package: bidi 2025/02/02 v25.2.2 (Release Maryam Mirzakhani) Bidirectional type
 setting in plain TeX and LaTeX
 
@@ -207,7 +216,7 @@ setting in plain TeX and LaTeX
 * Primary author of bidi package: Vafa Khalighi.
 * 
 ****************************************************
-(C:\Program Files\MiKTeX\tex/xelatex/bidi\biditools.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/xelatex/bidi\biditools.sty
 Package: biditools 2025/02/02 v2.7 Programming tools for bidi package
 \@bidi@envbody=\toks19
 \@bidi@emptytoks=\toks20
@@ -223,39 +232,43 @@ Package: biditools 2025/02/02 v2.7 Programming tools for bidi package
 \bidi@empty@stack=\toks26
 \bidi@looprepeat@depth=\count335
 )
-(C:\Program Files\MiKTeX\tex/latex/zref\zref-abspage.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/zref\zref-abspage.sty
 Package: zref-abspage 2025-06-08 v2.36 Module abspage for zref (HO)
-
-(C:\Program Files\MiKTeX\tex/latex/zref\zref-base.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/zref\zref-base.sty
 Package: zref-base 2025-06-08 v2.36 Module base for zref (HO)
 
-(C:\Program Files\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 )
-(C:\Program Files\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr
+.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
-(C:\Program Files\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.s
+ty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 )
-(C:\Program Files\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefi
+nekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 )
-(C:\Program Files\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcm
+ds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-(C:\Program Files\MiKTeX\tex/generic/iftex\iftex.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode not found.
 )
-(C:\Program Files\MiKTeX\tex/generic/etexcmds\etexcmds.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.s
+ty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-(C:\Program Files\MiKTeX\tex/latex/auxhook\auxhook.sty
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
 Package zref Info: New property list: main on input line 767.
@@ -269,7 +282,8 @@ Package zref Info: New property: abspage on input line 67.
 \bidi@typesethour=\count337
 \bidi@typesetminute=\count338
 
-(C:\Program Files\MiKTeX\tex/xelatex/bidi\latex-xetex-bidi.def
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/xelatex/bidi\latex-xetex-bi
+di.def
 File: latex-xetex-bidi.def 2025/01/03 v1.5.2 bidi adaptations for `latex.ltx' f
 or XeTeX engine
 \bidi@n@everypar=\toks27
@@ -279,13 +293,15 @@ LaTeX Info: Redefining \rightline on input line 326.
 LaTeX Info: Redefining \underline on input line 334.
 \bidi@column@check@number=\count339
 
-(C:\Program Files\MiKTeX\tex/xelatex/bidi\footnote-xetex-bidi.def
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/xelatex/bidi\footnote-xetex
+-bidi.def
 File: footnote-xetex-bidi.def 2024/12/14 v1.3 bidi footnote macros for XeTeX en
 gine
 \c@footdir@label=\count340
 \footdir@toks=\toks28
 )
-(C:\Program Files\MiKTeX\tex/xelatex/bidi\fancyhdr-xetex-bidi.def
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/xelatex/bidi\fancyhdr-xetex
+-bidi.def
 File: fancyhdr-xetex-bidi.def 2025/01/07 v0.9 bidi adaptations for fancyhdr pac
 kage for XeTeX engine
 
@@ -301,7 +317,9 @@ Package bidi Warning: Oops! patching `\f@nch@hfbox@fit' failed.
 
 Package bidi Warning: Oops! patching `\f@nch@hfbox@fit' failed.
 
-) (C:\Program Files\MiKTeX\tex/xelatex/bidi\graphicx-xetex-bidi.def
+)
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/xelatex/bidi\graphicx-xetex
+-bidi.def
 File: graphicx-xetex-bidi.def 2017/06/17 v0.5 bidi adaptations for graphicx pac
 kage for XeTeX engine
 ))
@@ -313,12 +331,13 @@ kage for XeTeX engine
 \xepersian@ilg=\dimen154
 \xepersian@strutilg=\dimen155
 
-(C:\Program Files\MiKTeX\tex/xelatex/xepersian\footnote-xetex-bidi-xetex-xepers
-ian.def
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/xelatex/xepersian\footnote-
+xetex-bidi-xetex-xepersian.def
 File: footnote-xetex-bidi-xetex-xepersian.def 2017/08/09 v0.6 xepersian adaptat
 ions for footnotes for XeTeX engine
 )
-(C:\Program Files\MiKTeX\tex/xelatex/xepersian\report-xetex-xepersian.def
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/xelatex/xepersian\report-xe
+tex-xepersian.def
 File: report-xetex-xepersian.def 2010/07/25 v0.2 xepersian adaptations for repo
 rt class for XeTeX engine
 )
@@ -375,16 +394,6 @@ apping=tex-text;"
 
 
 Package fontspec Info: 
-(fontspec)             Could not resolve font "B Nazanin/BI" (it probably
-(fontspec)             doesn't exist).
-
-
-Package fontspec Info: 
-(fontspec)             Could not resolve font "B Nazanin/B" (it probably
-(fontspec)             doesn't exist).
-
-
-Package fontspec Info: 
 (fontspec)             Could not resolve font "B Nazanin/I" (it probably
 (fontspec)             doesn't exist).
 
@@ -400,6 +409,12 @@ Package fontspec Info:
 (fontspec)             - 'normal' (m/n) with NFSS spec.: <->"B
 (fontspec)             Nazanin/OT:language=dflt;script=arab;mapping=persian-tex
 -text;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"B
+(fontspec)             Nazanin/B/OT:language=dflt;script=arab;mapping=persian-t
+ex-text;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"B
+(fontspec)             Nazanin/BI/OT:language=dflt;script=arab;mapping=persian-
+tex-text;"
 
 
 Package fontspec Info: 
@@ -436,11 +451,11 @@ text;"
 
 LaTeX Info: Redefining \latinfont on input line 11.
 
-(C:\Program Files\MiKTeX\tex/xelatex/bidi\report-xetex-bidi.def
+(C:\Users\hossein\AppData\Local\Programs\MiKTeX\tex/xelatex/bidi\report-xetex-b
+idi.def
 File: report-xetex-bidi.def 2025/02/02 v0.9 bidi adaptations for standard repor
 t class for XeTeX engine
-)
-(documention of authentication ms.aux)
+) (documention of authentication ms.aux)
 \openout1 = `"documention of authentication ms.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
@@ -472,36 +487,27 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [1
 
 ]
-
-LaTeX Font Warning: Font shape `TU/BNazanin(0)/b/n' undefined
-(Font)              using `TU/BNazanin(0)/m/n' instead on input line 25.
-
-File: image/Authentication-Diragram.png Graphic file (type bmp)
-<image/Authentication-Diragram.png>
+File: image/Untitled Diagram.drawio.png Graphic file (type bmp)
+<image/Untitled Diagram.drawio.png>
+File: image/C&C-SupportAdmin-diagram.drawio.png Graphic file (type bmp)
+<image/C&C-SupportAdmin-diagram.drawio.png>
 
 
 [1]
-File: image/Support-diagram.drawio.png Graphic file (type bmp)
-<image/Support-diagram.drawio.png>
-
 
 [2] (documention of authentication ms.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-08-13>
  ***********
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
  ) 
 Here is how much of TeX's memory you used:
- 6955 strings out of 403249
- 195390 string characters out of 5465207
- 612036 words of memory out of 5000000
- 35300 multiletter control sequences out of 15000+600000
- 629817 words of font info for 81 fonts, out of 8000000 for 9000
+ 6971 strings out of 403249
+ 196987 string characters out of 4210446
+ 1602053 words of memory out of 11000000
+ 35313 multiletter control sequences out of 15000+600000
+ 629841 words of font info for 84 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 99i,8n,107p,1370b,258s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,8n,107p,1183b,258s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on documention of authentication ms.pdf (3 pages).
