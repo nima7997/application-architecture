@@ -68,9 +68,9 @@ citecolor=black
 	\item احرازهویت ایشان توسط سرویس احرازهویت تصدیق می‌شود.
 	\item اپراتور انتخاب‌های زیر را خواهد داشت:
 	\begin{enumerate}
-	\item افزودن و ویرایش مشتری جدید	
-	\item افزودن، ویرایش، و حذف اقلام فاکتور فروش
-	\item ثبت نهایی فروش و صدور فاکتور
+%	\item افزودن و ویرایش مشتری جدید	
+	\item افزودن، ویرایش، و حذف اقلام فاکتور فروش()(\lr{inventory})
+	\item ویرایش موجودی کالاها(\lr{inventory})
 	\end{enumerate}
 	\end{enumerate}
 	سرویس مدیریتی
@@ -79,110 +79,104 @@ citecolor=black
 		\item احرازهویت وی توسط سرویس احرازهویت تصدیق می‌شود.
 		\item مدیر قابلیت‌های زیر را خواهد داشت:
 		\begin{enumerate}
-			\item افزودن،ویرایش و حذف کاربر(اپراتور)
-			\item افزودن، ویرایش و حذف کالا
-			\item گزارشگیری‌های متنوع
-			\item تمام توانایی کاربر معمولی
+			\item افزودن،ویرایش و حذف اپراتور(\lr{authentication})
+			\item افزودن، ویرایش و حذف کالا،موجودی،قیمت و .. (\lr{inventory})
+			\item گزارشگیری‌های متنوع (\lr{report,admin})
+			\item تمام توانایی کاربر معمولی (\lr{inventory, accounting})
 		\end{enumerate}
 	\end{enumerate}
 	%\textbf{حذف و ویرایش رکورد برای هر داده براساس شرایطی خاص انجام می‌شود.} \\
 	دیگر سرویس‌ها که شامل سرویس مدیریت کاربران و مشتریان، سرویس مدیریت فروش و موجودی و کالا و مدیریت گزارش‌ها می‌شود توسط این دو سرویس مورد استفاده قرار خواهند گرفت.
+	
+	برای این نرم‌افزار از معماری میکروسرویس استفاده خواهد شد. تمرکز بر معماری مبکروسرویس‌های 
+\lr{Authentication},
+\lr{Support},
+\lr{Inventory},
+\lr{Accounting},
+\lr{Report}
+می‌باشد.
 	\section{پیشرانه‌های معماری (\lr{Architecture Drivers})}
+	پیشرانه‌های مدنظر:
 	\begin{enumerate}
-		\item \textbf{\lr{availability}}:
-		سرویس‌دهی با بیشترین دسترس‌پذیری (به ویژه در ساعات اوج تراکنش‌ها)
-		\item \textbf{\lr{performance}}:
-		پاسخ درخواست‌ها در بازه محدود و مشخص داده شود
-		\item \textbf{\lr{testability}}:
-		قابلیت نمایش خطای سیستم برای تسهیل در تصحیح خطای
-		\item \textbf{\lr{scalability}}:
-		قابلیت افزودن شعب بدون نیاز به تغییرات عمده را داشته باشیم
+		\item \textbf{\lr{availability}}
+		%سرویس‌دهی با بیشترین دسترس‌پذیری (به ویژه در ساعات اوج تراکنش‌ها)
+		\item \textbf{\lr{performance}}
+	%	پاسخ درخواست‌ها در بازه محدود و مشخص داده شود
+		\item \textbf{\lr{testability}}
+	%	قابلیت نمایش خطای سیستم برای تسهیل در تصحیح خطای
+		
+	\end{enumerate}
+	برخی از پیشرانه‌های دیگر که می‌توان در نظر گرفت:
+	\begin{enumerate}
+		\item \textbf{\lr{security}}
+		\item \textbf{\lr{energy efficiency}}		
+		\item \textbf{\lr{usability}}
+		
 		
 	\end{enumerate}
 	\newpage
 	\section{سناریوها (\lr{Scenarios})}
-	سناریوهای دسترس پذیری نرم افزار عبارتند از: 
+	\textbf{\lr{availability scenario}}
 	\begin{enumerate}
 		\item سامانه باید در ساعات کاری به برای انجام عملیات‌هایی همچون ثبت تراکنش‌ها در دسترس باشد.
-		\item در ساعات اوج مصرف سامانه باید دردسترس باشد
-		\item در هر زمان برای گزارش‌گیری باید سامانه در دسترس باشد
+		\begin{table}[h]
+			\centering
+			\caption{دسترس‌پذیری} % heart beat, redundant spare,retry,graceful degradation
+			\begin{tabular}{|c|c|}
+				\hline
+				\textbf{بخش‌های سناریو} & \textbf{توضیحات} \\
+				\hline
+				\lr{stimulus sources} & \lr{salesclerk or support user, services}\\
+				\lr{stimulus} & \lr{crash, fault, disconnect network} \\
+				\lr{environment} &  \lr{peak hours} \\
+				\lr{artifact} & \lr{hardware, network, micro-services, api gateway}\\
+				\lr{response} & \lr{log the fault, notify, recover from fault}  \\
+				\lr{response measures} & \lr{time to detect fault, availability percentage, time to recover} \\
+				\hline
+			\end{tabular}
+		\end{table}
 	\end{enumerate}
-\begin{table}[h]
-	\centering
-	\caption{سناریو \lr{availability}}
-	\begin{tabular}{|c|c|}
-		\hline
-		\textbf{بخش‌های سناریو} & \textbf{توضیحات} \\
-		\hline
-		\lr{stimulus sources} & \lr{user, software, hardware}\\
-		\lr{stimulus} & \lr{fault in any services} \\
-		\lr{environment} &  \lr{peak hours} \\
-		\lr{artifact} & \lr{store services ,order API, order services,report services}\\
-		\lr{response} & \lr{1-prevent 2-detect 3-recovery}  \\
-		\lr{response measures} & \lr{Time to detect fault, Avg availability in specific duration} \\
-		\hline
-	\end{tabular}
-\end{table}
-سناریوهای کارایی نرم افزار عبارتند از: 
+\textbf{\lr{performance scenario}}
 \begin{enumerate}
 	\item در زمان اوج فروش در شعب باید حداکثر تاخیر قابل قبولی داشته باشیم.
+	\item در زمان مطلوبی بتوان نتایج گزارشات را دریافت کرد.
 \end{enumerate}
 \begin{table}[h]
 	\centering
-	\caption{سناریو \lr{performance}}
+	\caption{کارآیی}
 	\begin{tabular}{|c|c|}
 		\hline	
 		\textbf{بخش‌های سناریو} & \textbf{توضیحات} \\
 		\hline	
-\lr{stimulus sources} & \lr{services and user}\\
-\lr{stimulus} & \lr{order} \\
-\lr{environment} &  \lr{ordering in peak time} \\
-\lr{artifact} & \lr{ordering, inventory, product,}\\
-\lr{response} & \lr{fast, handle transaction when disconnecting}  \\
-\lr{response measures} & \lr{response time, threshold of latency} \\
+		\lr{stimulus sources} & \lr{salesclerk or support user. services}\\
+		\lr{stimulus} & \lr{transaction, report} \\
+		\lr{environment} &  \lr{peak time,normal time} \\
+		\lr{artifact} & \lr{inventory and accounting micro-services,report micro-service}\\
+		\lr{response} & \lr{return response or Error , ignore request }  \\
+		\lr{response measures} & \lr{response time, latency} \\
 		\hline
 	\end{tabular}
 \end{table}
-سناریوهای تست پذیری نرم افزار عبارتند از: 
+\textbf{\lr{testability scenario}}
 \begin{enumerate}
-	\item درصورت بروز خطا در سیستم قابلیت کشف علت و تصحیح آن مشخص باشد.
+	\item درصورت بروز خطا در سیستم قابلیت کشف علت و تصحیح آن قبل از استقرار مشخص باشد.	
 \end{enumerate}
 \begin{table}[h!]
 	\centering
-	\caption{سناریوهای \lr{testability}}
+	\caption{تست‌پذیری}
 	\begin{tabular}{|c|c|}
 		\hline	
 		\textbf{بخش‌های سناریو} & \textbf{توضیحات} \\
 		\hline	
-		\lr{stimulus sources} & \lr{users, unit or integrate test}\\
-		\lr{stimulus} & \lr{a set of tests} \\
+		\lr{stimulus sources} & \lr{developer and tester ,unit test}\\
+		\lr{stimulus} & \lr{validate system functions} \\
 		\lr{environment} &  \lr{design \& development \& compile \& integration time} \\
-		\lr{artifact} & \lr{the part of system}\\
-		\lr{response} & \lr{execute test suit and capture result, activity which created fault}  \\
+		\lr{artifact} & \lr{each portion of system which we want to test}\\
+		\lr{response} & \lr{execute test, capture state report that each module tell us}  \\
 		\lr{response measures} & \lr{effort to find a fault or class of faults} \\
 		\hline
 	\end{tabular}
 \end{table}
-سناریوهای مقیاس پذیری نرم افزار عبارتند از: 
-\begin{enumerate}
-	\item قابلیت افزودن نودهای جدید برای شعب جدید
-	\item قابلیت افزودن نودهای جدید به منظور جلوگیری از تاخیر بیشتر
-\end{enumerate}
-\begin{table}[H]
-	\centering
-	\caption{سناریوهای \lr{scalability}}
-	\begin{tabular}{|c|c|}
-		\hline	
-		\textbf{بخش‌های سناریو} & \textbf{توضیحات} \\
-		\hline	
-		\lr{stimulus sources} & \lr{manager or admin}\\
-		\lr{stimulus} & \lr{new branch, increase in customers} \\
-		\lr{environment} &  \lr{runtime} \\
-		\lr{artifact} & \lr{servers \& services}\\
-		\lr{response} & \lr{delay \& speed compensation by adding new node}  \\
-		\lr{response measures} & \lr{The system must be able to handle many times the normal load.} \\
-		\hline
-	\end{tabular}	
-\end{table}
+
 
 \end{document}
