@@ -60,41 +60,34 @@ citecolor=black
 	
 
 	\section{مقدمه}
-	این سامانه به منظور استفاده در فروشگاه‌های زنجیره‌ای برای مدیریت کارمندان و مشتریان، مدیریت محصولات و موجودی، مدیریت فروش(تراکنش‌ها) و پرداخت طراحی خواهد شد. این سامانه نیاز به یکپارچه‌سازی به منظور مدیریت شعب، مدیریت فروش، مدیریت موجودی، مدیریت پرسنل و مشتریان دارد. این نرم‌افزار دارای دو سطح دسترسی کاربر و مدیر می‌باشد. در هر یک از شعب باید قابلیت ویرایش موجودی کالا، ویرایش یا افزودن مشتری جدید، ثبت و ویرایش فاکتور فروش وجود داشته باشد. تعریف پرسنل، کالاها، سطح دسترسی (کاربر و مدیر )توسط نرم افزار مدیریتی انجام می‌شود.
+	این سامانه به منظور استفاده در فروشگاه‌های زنجیره‌ای برای مدیریت محصولات، موجودی، مدیریت فروش طراحی خواهد شد. این سامانه نیاز به یکپارچه‌سازی به منظور مدیریت شعب، کالا، فروش، موجودی، کارمندان(ثبت کننده تراکنش‌ها) دارد. این نرم‌افزار دارای دو سطح دسترسی کاربر و مدیر می‌باشد. در هر یک از شعب باید قابلیت ورود اپراتور، ویرایش موجودی کالا(افزایش موجودی)، ثبت و ویرایش فاکتور فروش وجود داشته باشد. تعریف پرسنل، کالاها، سطح دسترسی (کاربر و مدیر )توسط نقش مدیریتی انجام می‌شود. این سامانه در ساعاتی از روز بار کاری نسبتا سنگینی خواهد داشت، احراز هویت کاربران، ثبت سفارشات، تغییرات در سفارشات، افزایش موجودی کالا‌ها برای هر فروشگاه و موارد دیگر.
 	\section{موارد استفاده}
-	سرویس فروشگاه برای هر شعبه
+	کاربر معمولی
 	\begin{enumerate}
 	\item اپراتور در نرم‌افزار فروشگاه با سطح دسترسی کاربر معمولی وارد می‌شود.
 	\item احرازهویت ایشان توسط سرویس احرازهویت تصدیق می‌شود.
 	\item اپراتور انتخاب‌های زیر را خواهد داشت:
 	\begin{enumerate}
 %	\item افزودن و ویرایش مشتری جدید	
-	\item افزودن، ویرایش، و حذف اقلام فاکتور فروش()(\lr{inventory})
-	\item ویرایش موجودی کالاها(\lr{inventory})
+	\item افزودن، ویرایش، و حذف اقلام فاکتور فروش
+	\item ویرایش موجودی کالاها
 	\end{enumerate}
 	\end{enumerate}
-	سرویس مدیریتی
+	کاربر مدیر
 	\begin{enumerate}
 		\item کاربر با سطح دسترسی مدیر وارد می‌شود.
 		\item احرازهویت وی توسط سرویس احرازهویت تصدیق می‌شود.
 		\item مدیر قابلیت‌های زیر را خواهد داشت:
 		\begin{enumerate}
-			\item افزودن،ویرایش و حذف اپراتور(\lr{authentication})
-			\item افزودن، ویرایش و حذف کالا،موجودی،قیمت و .. (\lr{inventory})
-			\item گزارشگیری‌های متنوع (\lr{report,admin})
-			\item تمام توانایی کاربر معمولی (\lr{inventory, accounting})
+			\item افزودن،ویرایش و حذف اپراتور
+			\item افزودن، ویرایش و حذف کالا،موجودی،قیمت  
+			\item گزارشگیری‌های متنوع
+			\item  توانایی کاربر معمولی
 		\end{enumerate}
 	\end{enumerate}
 	%\textbf{حذف و ویرایش رکورد برای هر داده براساس شرایطی خاص انجام می‌شود.} \\
-	دیگر سرویس‌ها که شامل سرویس مدیریت کاربران و مشتریان، سرویس مدیریت فروش و موجودی و کالا و مدیریت گزارش‌ها می‌شود توسط این دو سرویس مورد استفاده قرار خواهند گرفت.
+	دیگر سرویس‌ها مانند مدیریت فروش و موجودی و کالا و مدیریت گزارش‌ها می‌شود توسط این دو سرویس مورد استفاده قرار خواهند گرفت.
 	
-	برای این نرم‌افزار از معماری میکروسرویس استفاده خواهد شد. تمرکز بر معماری مبکروسرویس‌های 
-\lr{Authentication},
-\lr{Support},
-\lr{Inventory},
-\lr{Accounting},
-\lr{Report}
-می‌باشد.
 	\section{پیشرانه‌های معماری (\lr{Architecture Drivers})}
 	پیشرانه‌های مدنظر:
 	\begin{enumerate}
@@ -114,69 +107,93 @@ citecolor=black
 		
 		
 	\end{enumerate}
-	\newpage
+
 	\section{سناریوها (\lr{Scenarios})}
 	\textbf{\lr{availability scenario}}
 	\begin{enumerate}
-		\item سامانه باید در ساعات کاری به برای انجام عملیات‌هایی همچون ثبت تراکنش‌ها در دسترس باشد.
+		\item سامانه باید دسترس پذیری بالایی داشته باشد زیرا ثبت تراکنش برای فروشگاه نیاید بیش از 5 ثانیه باشد پس در صورت خرابی سرویس دیگری باید سریعا جایگزین شود.
+		\item  در صورت مشکل برای ماژول‌های ثبت تراکنش باید سریع جایگزینی برای آن انتخاب شود تا دسترس پذیری از بین نرود \\
 		\begin{table}[h]
 			\centering
-			\caption{دسترس‌پذیری} % heart beat, redundant spare,retry,graceful degradation
-			\begin{tabular}{|c|c|}
+			\caption{سناریوی دسترس‌پذیری}
+			\begin{tabular}{|c|p{10cm}|}
 				\hline
 				\textbf{بخش‌های سناریو} & \textbf{توضیحات} \\
 				\hline
-				\lr{stimulus sources} & \lr{salesclerk or support user, services}\\
-				\lr{stimulus} & \lr{crash, fault, disconnect network} \\
-				\lr{environment} &  \lr{peak hours} \\
-				\lr{artifact} & \lr{hardware, network, micro-services, api gateway}\\
-				\lr{response} & \lr{log the fault, notify, recover from fault}  \\
-				\lr{response measures} & \lr{time to detect fault, availability percentage, time to recover} \\
+				\lr{stimulus source} & فروشنده شعبه \\
+				\hline
+				\lr{stimulus} & از کار افتادن سرویس ثبت تراکنش و یا سرویس احراز هویت \\
+				\hline
+				\lr{environment} & ساعات اوج فروش \\
+				\hline
+				\lr{artifact} & سرویس ثبت تراکنش در سامانه مرکزی ، سرویس احراز هویت \\
+				\hline
+				\lr{response} & شناسایی خطا، ثبت لاگ، هدایت درخواست‌ها به سرویس سالم \\
+				\hline
+				\lr{response measure} & 
+				زمان تشخیص خطا کمتر 15 ثانیه، 
+				زمان بازیابی کمتر از 1 دقیقه پس از تشخیص، 
+				دسترس پذیری \% 9.99 \\
 				\hline
 			\end{tabular}
 		\end{table}
 	\end{enumerate}
 \textbf{\lr{performance scenario}}
 \begin{enumerate}
-	\item در زمان اوج فروش در شعب باید حداکثر تاخیر قابل قبولی داشته باشیم.
-	\item در زمان مطلوبی بتوان نتایج گزارشات را دریافت کرد.
+	\item در زمان اوج ثبت سفارشات تاخیر برای ثبت تراکنش باید کمتر از 5 ثانیه باشد.
+	
 \end{enumerate}
 \begin{table}[h]
 	\centering
-	\caption{کارآیی}
-	\begin{tabular}{|c|c|}
-		\hline	
+	\caption{سناریوی کارایی - ثبت تراکنش}
+	\begin{tabular}{|c|p{10cm}|}
+		\hline
 		\textbf{بخش‌های سناریو} & \textbf{توضیحات} \\
-		\hline	
-		\lr{stimulus sources} & \lr{salesclerk or support user. services}\\
-		\lr{stimulus} & \lr{transaction, report} \\
-		\lr{environment} &  \lr{peak time,normal time} \\
-		\lr{artifact} & \lr{inventory and accounting micro-services,report micro-service}\\
-		\lr{response} & \lr{return response or Error , ignore request }  \\
-		\lr{response measures} & \lr{response time, latency} \\
+		\hline
+		\lr{stimulus source} & فروشنده شعبه \\
+		\hline
+		\lr{stimulus} & ارسال درخواست ثبت تراکنش \\
+		\hline
+		\lr{environment} & ساعات اوج فروش \\
+		\hline
+		\lr{artifact} & سرویس انبار و حسابداری \\
+		\hline
+		\lr{response} & پردازش تراکنش و ارسال پاسخ \\
+		\hline
+		\lr{response measure} & 
+		زمان پاسخ کمتر از 5 ثانیه \\
 		\hline
 	\end{tabular}
 \end{table}
+
 \textbf{\lr{testability scenario}}
 \begin{enumerate}
-	\item درصورت بروز خطا در سیستم قابلیت کشف علت و تصحیح آن قبل از استقرار مشخص باشد.	
+	\item سامانه باید در زمان توسعه و تست قابلیت تست داشته باشد. و این قابلیت سبب تسریع در خطایابی و تصحیح خطا داشته باشد.
 \end{enumerate}
-\begin{table}[h!]
+
+\begin{table}[h]
 	\centering
-	\caption{تست‌پذیری}
-	\begin{tabular}{|c|c|}
-		\hline	
+	\caption{سناریوی تست‌پذیری}
+	\begin{tabular}{|c|p{10cm}|}
+		\hline
 		\textbf{بخش‌های سناریو} & \textbf{توضیحات} \\
-		\hline	
-		\lr{stimulus sources} & \lr{developer and tester ,unit test}\\
-		\lr{stimulus} & \lr{validate system functions} \\
-		\lr{environment} &  \lr{design \& development \& compile \& integration time} \\
-		\lr{artifact} & \lr{each portion of system which we want to test}\\
-		\lr{response} & \lr{execute test, capture state report that each module tell us}  \\
-		\lr{response measures} & \lr{effort to find a fault or class of faults} \\
+		\hline
+		\lr{stimulus source} & توسعه‌دهنده یا تست کننده \\
+		\hline
+		\lr{stimulus} & اجرای تست برای بررسی عملکرد یک سرویس \\
+		\hline
+		\lr{environment} & زمان توسعه ، تست  \\
+		\hline
+		\lr{artifact} & سرویس مد نظر \\
+		\hline
+		\lr{response} & اجرای تست و ارائه گزارش وضعیت داخلی \\
+		\hline
+		\lr{response measure} & 
+		زمان شناسایی خطا کمتر از 10 دقیقه \\
 		\hline
 	\end{tabular}
 \end{table}
+
 
 
 \end{document}
